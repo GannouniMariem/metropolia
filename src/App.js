@@ -4,13 +4,13 @@ import Menu from './Menu'
 import WeatherApp from './WeatherApp'
 import logo from './logo.png'
 
+
 import './App.css'
 
 
 function App() {
   return (
   <div className="main">
-
     <div className="logo">
       <img src = {logo} alt="" />
     </div>

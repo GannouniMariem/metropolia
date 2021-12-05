@@ -2,7 +2,9 @@ import React from 'react'
 import moment from 'moment';
 
 function DayCard(props) {
-    
+  
+  if(props != null){
+  
     let newDate = new Date();
     const weekday = props?.reading.dt * 1000
     
@@ -24,5 +26,6 @@ function DayCard(props) {
             </div>
       </div>
     )
+  }
 }
 export default DayCard

@@ -25,15 +25,14 @@ function WeatherApp() {
           fetchApi()
     },[])
 
-    const formatDayCards = () => {
-    
-        return weatherData.map((reading, index) => <DayCard reading = {reading} key={index} />)
+    function formatDayCards() {
+        
+        return weatherData.map((reading, index) => <DayCard reading={reading} key={index} />)
     }
 
-    return (
+        return (
             <div className="weatherContainer">
-                {formatDayCards()}
-            
+               {  weatherData.length > 1 ? formatDayCards() : null}            
             </div>
         )
 

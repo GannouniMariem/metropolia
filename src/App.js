@@ -16,14 +16,16 @@ function App() {
     </div>
 
     <div className="container">
+      <div className="row">
+              
+            <div className="col-6">
+              <Menu />
+            </div>
 
-      <div className="col-1">
-        <Menu />
-      </div>
-
-      <div className="col-2">
-        <WeatherApp />
-        <Hsl />
+            <div className="col-6">
+              <WeatherApp />
+              <Hsl />
+            </div>
       </div>
     </div>
   </div>

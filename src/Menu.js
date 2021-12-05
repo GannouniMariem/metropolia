@@ -10,17 +10,15 @@ function Menu() {
 
         async function MenuFetch(){
 
-            let response = await fetch('https://www.foodandco.fi/modules/json/json/Index?costNumber=3208&language=en')
-                response = await response.json()
-                SetListMenu(response)
-                console.log(response)
+            let response = await fetch('https://www.foodandco.fi/modules/json/json/Index?costNumber=3208&language=en',  {mode:'no-cors'})
+            SetListMenu(data)
+
         }
 
 
-
-        SetListMenu(data)
-        console.log(data)
-    },[])
+        MenuFetch()
+        console.log(ListMenu)
+    })
 
     //filtring button functionality
 
@@ -28,17 +26,30 @@ function Menu() {
         if(e.target.value ==="All"){
           SetListMenu(data)
         }else{
-          const dayMenu = ListMenu.filter(item => item.MenusForDays.Date === e.target.value)
-          SetListMenu(dayMenu)
+            ListMenu.map(item =>{
+                return (
+                    console.log('hello')
+                )
+            })
+         /* const dayMenu = ListMenu.filter(item => item.MenusForDays.map)
+          SetListMenu(dayMenu)*/
         }
     }
+    console.log(ListMenu)
 
     
-    return (
-        <div className="menuContainer">
-            <MenuList Menu = {ListMenu} handleBtns={handleBtns}/>
-        </div>
-    )
+    if(ListMenu.length >= 1){
+        console.log(ListMenu);
+        return (
+            
+            <div className="menuContainer">
+                <h1> menu </h1>    
+                <MenuList Menu = {ListMenu} handleBtns={handleBtns}/>
+
+            </div>
+            
+        )
+    }else return( <div>bbb</div> )
 }
 
 export default Menu

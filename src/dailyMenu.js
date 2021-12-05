@@ -1,20 +1,33 @@
 import React from 'react'
 
 function dailyMenu(props) {
-    return (
+    console.log(props.Menu)
+    if(props != null){
         
-        <React.Fragment>
+        return (
             
-            <div className="signle">
-                <h1>{props.Date}</h1>
-
-                {props.SetMenus.Components.map(item => {
-                    return <p>{item}</p>
-                })}
+            <React.Fragment>
                 
-            </div>
-        </React.Fragment>
-    )
+                <div className="signle">
+                    {
+                        props.Menu.map(item => {
+                                return(
+                                item.SetMenus.map(m =>{
+                                    return(
+                                        m.Components.map(c=>{
+                                            return <p>{c}</p>
+                                        })
+                                    )
+                                })
+                            )
+                        })
+                    }
+                    
+                </div>
+            </React.Fragment>
+        )
+    }
+    
 }
 
 export default dailyMenu

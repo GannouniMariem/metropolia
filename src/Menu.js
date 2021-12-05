@@ -10,16 +10,16 @@ function Menu() {
 
         async function MenuFetch(){
 
-            let response = await fetch('https://www.foodandco.fi/modules/json/json/Index?costNumber=3208&language=en')
-                response = await response.json()
-                SetListMenu(response)
-                console.log(response)
+            let response = await fetch('https://www.foodandco.fi/modules/json/json/Index?costNumber=3208&language=en',  {mode:'no-cors'})
+            console.log(response)
+            SetListMenu(response)
+              
         }
 
 
-
+        MenuFetch()
         SetListMenu(data)
-        console.log(data)
+     
     },[])
 
     //filtring button functionality
@@ -33,12 +33,16 @@ function Menu() {
         }
     }
 
-    
+    if(ListMenu.length > 1){
+        console.log(ListMenu);
     return (
+        
         <div className="menuContainer">
+            <h1> menu </h1>    
             <MenuList Menu = {ListMenu} handleBtns={handleBtns}/>
         </div>
-    )
+        
+    )}else return( <div></div> )
 }
 
 export default Menu

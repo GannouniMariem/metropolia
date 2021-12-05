@@ -1,5 +1,5 @@
 import React from 'react'
-import dailyMenu from './dailyMenu'
+import dailyMenu from './dailyMenu';
 
 function MenuList(props) {
     return (
@@ -10,7 +10,7 @@ function MenuList(props) {
                 <button value={props[0].Date} onClick={props.handleBtns}>{props[0].Date}</button>
 
             </div>
-
+            
             <div>
             {props.Menu.map(item => {
                 return <dailyMenu Menu ={item.MenusForDays} />

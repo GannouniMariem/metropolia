@@ -15,16 +15,21 @@ function App() {
       <img src = {logo} alt="" />
     </div>
 
-    <div className="container">
+    <div className="container-fluid">
       <div className="row">
-              
             <div className="col-6">
               <Menu />
             </div>
 
-            <div className="col-6">
-              <WeatherApp />
-              <Hsl />
+            <div className="col-6 ">
+                <div className="row">
+                    <div className="col-12">
+                        <WeatherApp />
+                    </div>
+                     <div className="col-12">
+                        <Hsl />
+                     </div> 
+                </div>
             </div>
       </div>
     </div>

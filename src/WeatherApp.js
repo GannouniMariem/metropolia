@@ -31,8 +31,10 @@ function WeatherApp() {
     }
 
         return (
-            <div className="weatherContainer">
-               {  weatherData.length > 1 ? formatDayCards() : null}            
+            <div className="weatherContainer container">
+                <div className="row">
+                    {  weatherData.length > 1 ? formatDayCards() : null}            
+                </div>
             </div>
         )
 

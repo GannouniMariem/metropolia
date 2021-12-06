@@ -27,23 +27,22 @@ function Menu() {
           SetListMenu(data)
         }else{
             ListMenu.map(item =>{
+                const daiMenu = item.MenusForDays.filter(a => a.Date === e.target.value)
                 return (
-                    console.log('hello')
+                    SetListMenu(daiMenu)
                 )
             })
-         /* const dayMenu = ListMenu.filter(item => item.MenusForDays.map)
-          SetListMenu(dayMenu)*/
+         
         }
     }
-    console.log(ListMenu)
 
     
     if(ListMenu.length >= 1){
         console.log(ListMenu);
         return (
             
-            <div className="menuContainer">
-                <h1> menu </h1>    
+            <div className="menuContainer text-center container p-5">
+                <h1> Menu </h1>    
                 <MenuList Menu = {ListMenu} handleBtns={handleBtns}/>
 
             </div>

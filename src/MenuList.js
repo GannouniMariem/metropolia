@@ -1,5 +1,6 @@
 import React from 'react'
 import DailyMenu from './DailyMenu';
+import moment from 'moment';
 
 function MenuList(props) {
     if(props.Menu != null){
@@ -8,14 +9,17 @@ function MenuList(props) {
             <React.Fragment>
                 
                 <div className="btns">
-                     <button value={props.Menu[0].MenusForDays[0].Date} onClick={props.handleBtns}>{props.Menu[0].MenusForDays[0].Date}</button>
-                    <button value="All" onClick={props.handleBtns}>Entire week</button>
+                
+                     <button className="btn btn-primary" value={props.Menu[0].MenusForDays[0].Date} onClick={props.handleBtns}>{moment(props.Menu[0].MenusForDays[0].Date).format('MMMM Do YYYY, h:mm:ss a')}</button>
+                     <button value="All" className="btn btn-primary" onClick={props.handleBtns}>Entire week</button>
     
                 </div>
     
-                <div>
+                <div className="row">
                     {props.Menu.map(item => {
-                        return <DailyMenu Menu ={item.MenusForDays}/>
+                        return (
+                            <DailyMenu Menu ={item.MenusForDays}/>
+                        )
                     })}
                 </div>
             </React.Fragment>
@@ -24,7 +28,7 @@ function MenuList(props) {
 
     }else{
         return(
-            <di>waiting data</di>
+            <div>waiting data</div>
         )
     }
 

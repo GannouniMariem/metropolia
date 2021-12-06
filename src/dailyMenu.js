@@ -1,4 +1,5 @@
 import React from 'react'
+import moment from 'moment';
 
 function dailyMenu(props) {
     console.log(props.Menu)
@@ -8,17 +9,30 @@ function dailyMenu(props) {
             
             <React.Fragment>
                 
-                <div className="signle">
+                <div className="menuCard col-12">
                     {
                         props.Menu.map(item => {
                                 return(
-                                item.SetMenus.map(m =>{
-                                    return(
-                                        m.Components.map(c=>{
-                                            return <p>{c}</p>
-                                        })
-                                    )
-                                })
+                                    item.SetMenus.length>0?
+                                    <div>
+                                        <h3 className="px-5 py-3">{moment(item.Date).format('dddd')}</h3>
+                                            {
+                                                item.SetMenus.map(m =>{
+                                                    return(
+                                                        m.Components.map(c=>{
+                                                            return (
+                                                                <div>  
+                                                                    <p className="">{c}</p>
+                                                                </div>
+                                                            )
+                                                        })
+                                                    )
+                                                })
+                                            }
+                                    </div>
+                                    :null
+                                    
+                                    
                             )
                         })
                     }
